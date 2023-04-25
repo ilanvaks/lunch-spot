@@ -13,16 +13,6 @@ export default function RestaurantCard ({ food }) {
 const styles = StyleSheet.create ({
   name: {
     fontSize: 24,
-    backgroundColor: "White",
-    marginVertical: 8,
-    alignItems: "center",
-    padding: 16,
-    borderRadius: 10,
-    borderColor: "#646D7E",
-    borderWidth: 2, 
-  },
-  name: {
-    fontSize: 24,
     marginBottom: 4,
   },
   img: {
@@ -32,6 +22,12 @@ const styles = StyleSheet.create ({
   },
   card: {
     width: "100%",
-
+    backgroundColor: "white",
+    marginVertical: 8,
+    alignItems: "center",
+    padding: 16,
+    borderRadius: 10,
+    borderColor: "#646D7E",
+    borderWidth: 2, 
   },
 })
