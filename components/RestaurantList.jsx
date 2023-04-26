@@ -15,7 +15,6 @@ export default function RestaurantList() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Restaurant List</Text>
       <ScrollView style={styles.list}>
         {foodList && foodList.map(food => (
           <RestaurantCard food={food} key={food.id} />
@@ -39,11 +38,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    // backgroundColor: "pink",
-    marginTop: 56,
-    marginBottom: 24,
-    width: "90%",
+    backgroundColor: "skyblue",
+    width: "100%",
     alignItems: "center",
     justifyContent: "flex-start",
+    paddingHorizontal: 16, 
   }
 })

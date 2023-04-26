@@ -1,19 +1,20 @@
-import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RestaurantList from './components/RestaurantList';
+
+const Stack = createNativeStackNavigator()  
+// using the library downloaded 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-    <RestaurantList />
-    </View>
+    <NavigationContainer>
+    <Stack.Navigator> 
+      <Stack.Screen name="Home"  options={{ title: "Restaurant List"}}
+      component={RestaurantList}/>  
+      {/* resteraunt list name of component look at import */}
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'skyblue',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
