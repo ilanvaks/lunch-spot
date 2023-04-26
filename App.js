@@ -1,18 +1,25 @@
+import { createContext, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RestaurantList from './components/RestaurantList';
+import RestaurantDetails from './components/RestaurantDetails';
 
-const Stack = createNativeStackNavigator()  
+const Stack = createNativeStackNavigator()
 // using the library downloaded 
+export const RestaurantContext = createContext()  //4 lines to create context: import, creact, wrap in super suit
+
 
 export default function App() {
+  const [selectedRestaurant, setSelectedRestaurant] = useState()
   return (
     <NavigationContainer>
-    <Stack.Navigator> 
-      <Stack.Screen name="Home"  options={{ title: "Restaurant List"}}
-      component={RestaurantList}/>  
-      {/* resteraunt list name of component look at import */}
-    </Stack.Navigator>
+      <RestaurantContext.Provider value={{ selectedRestaurant, setSelectedRestaurant}}>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" options={{ title: "Restaurant List" }}
+            component={RestaurantList} />
+          <Stack.Screen name="Details" component={RestaurantDetails} />
+        </Stack.Navigator>
+      </RestaurantContext.Provider>
     </NavigationContainer>
   );
 }

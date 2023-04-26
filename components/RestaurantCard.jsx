@@ -1,12 +1,27 @@
-import { Text, View, Image, StyleSheet } from "react-native"
+import { useContext } from "react"
+import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native"
+import { RestaurantContext } from "../App"
 
-export default function RestaurantCard ({ food }) {
+// list: first from main library, the other peoples comoponets, then own function & components, then css  
+// other people components: react Boostrap for example
+
+export default function RestaurantCard ({ food, navigation }) {
+  
+  const { setSelectedRestaurant } = useContext(RestaurantContext) 
+
+
+  const chooseRestaurant = () => {
+    setSelectedRestaurant(food) //Food is our restaurant, coders being lazy!!
+    navigation.navigate("Details")
+  }
 
   return (
+    <TouchableOpacity onPress={chooseRestaurant}>
     <View style={styles.card}>
       <Text style={styles.name}>{food.name}</Text>
       <Image style={styles.img} source={{ uri: food.image }} />
     </View>
+    </TouchableOpacity>
   )
 }
 
